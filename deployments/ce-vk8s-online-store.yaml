@@ -1,0 +1,172 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  annotations:
+    ves.io/workload-flavor : "ves-io-large"
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: public.ecr.aws/r2r2l6v3/ecommerce-mysql:latest-onlinestore
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: mysqlrootpassword
+            - name: MYSQL_DATABASE
+              value: wordpress
+            - name: MYSQL_USER
+              value: wordpress
+            - name: MYSQL_PASSWORD
+              value: wordpress
+          readinessProbe:
+            exec:
+              command:
+              - sh
+              - -c
+              - "mysqladmin ping --silent --password=$MYSQL_ROOT_PASSWORD"
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "50m"
+            limits:
+              memory: "1024Mi"
+              cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  selector:
+    app: mysql
+  ports:
+  - name: tcp
+    port: 3306
+    targetPort: 3306
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+  annotations:
+    ves.io/workload-flavor : "ves-io-large"
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+        - name: wordpress
+          image: public.ecr.aws/r2r2l6v3/ecommerce-wordpress:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: mysql-service
+            - name: WORDPRESS_DB_USER
+              value: wordpress
+            - name: WORDPRESS_DB_PASSWORD
+              value: wordpress
+            - name: WORDPRESS_DB_NAME
+              value: wordpress
+            - name: WORDPRESS_SITEURL
+              value: https://online-store.f5-cloud-demo.com/
+            - name: WORDPRESS_HOME
+              value: https://online-store.f5-cloud-demo.com/
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  selector:
+    app: wordpress
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-store-deployment
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: online-store
+  template:
+    metadata:
+      labels:
+        app: online-store
+    spec:
+      containers:
+      - name: online-store
+        image: public.ecr.aws/r2r2l6v3/ecommerce-reverse-proxy:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
+        env:
+          - name: WORDPRESS_HOST
+            value: online-store.f5-cloud-demo.com
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "5m"
+          limits:
+            memory: "128Mi"
+            cpu: "15m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: online-store-service
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  selector:
+    app: online-store
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+  type: ClusterIP

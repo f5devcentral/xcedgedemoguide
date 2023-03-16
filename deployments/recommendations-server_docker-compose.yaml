@@ -1,0 +1,6 @@
+version: '3'
+services:
+  recommendations:
+    image: public.ecr.aws/r2r2l6v3/ecommerce-recommendations-server:latest
+    ports:
+      - "8080:8080"

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deals-server-deployment
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-re-sites"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deals-server
+  template:
+    metadata:
+      labels:
+        app: deals-server
+    spec:
+      containers:
+        - name: deals-server
+          image: public.ecr.aws/r2r2l6v3/ecommerce-deals-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deals-server-service
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-re-sites"
+spec:
+  selector:
+    app: deals-server
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  type: ClusterIP

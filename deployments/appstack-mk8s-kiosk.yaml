@@ -1,0 +1,155 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: branch-a
+  labels:
+    name: branch-a
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: branch-a
+  annotations:
+    ves.io/workload-flavor : "ves-io-large"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: public.ecr.aws/r2r2l6v3/ecommerce-mysql:latest-kiosk
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: mysqlrootpassword
+            - name: MYSQL_DATABASE
+              value: wordpress
+            - name: MYSQL_USER
+              value: wordpress
+            - name: MYSQL_PASSWORD
+              value: wordpress
+          readinessProbe:
+            exec:
+              command:
+              - sh
+              - -c
+              - "mysqladmin ping --silent --password=$MYSQL_ROOT_PASSWORD"
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  namespace: branch-a
+spec:
+  selector:
+    app: mysql
+  ports:
+  - name: tcp
+    port: 3306
+    targetPort: 3306
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+  namespace: branch-a
+  annotations:
+    ves.io/workload-flavor : "ves-io-large"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+        - name: wordpress
+          image: public.ecr.aws/r2r2l6v3/ecommerce-wordpress:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: mysql-service
+            - name: WORDPRESS_DB_USER
+              value: wordpress
+            - name: WORDPRESS_DB_PASSWORD
+              value: wordpress
+            - name: WORDPRESS_DB_NAME
+              value: wordpress
+            - name: WORDPRESS_SITEURL
+              value: http://kiosk.branch-a.buytime.internal/
+            - name: WORDPRESS_HOME
+              value: http://kiosk.branch-a.buytime.internal/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  namespace: branch-a
+spec:
+  selector:
+    app: wordpress
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiosk-deployment
+  namespace: branch-a
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kiosk
+  template:
+    metadata:
+      labels:
+        app: kiosk
+    spec:
+      containers:
+      - name: kiosk
+        image: public.ecr.aws/r2r2l6v3/ecommerce-reverse-proxy:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
+        env:
+          - name: WORDPRESS_HOST
+            value: kiosk.branch-a.buytime.internal
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kiosk-service
+  namespace: branch-a
+spec:
+  selector:
+    app: kiosk
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 80
+  type: ClusterIP

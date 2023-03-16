@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-server-deployment
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-server
+  template:
+    metadata:
+      labels:
+        app: inventory-server
+    spec:
+      containers:
+      - name: inventory-server
+        image: public.ecr.aws/r2r2l6v3/ecommerce-inventory-sync-server:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "150m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-server-service
+  annotations:
+    ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
+spec:
+  selector:
+    app: inventory-server
+  ports:
+  - name: tcp
+    port: 3000
+    targetPort: 3000
+  type: ClusterIP
