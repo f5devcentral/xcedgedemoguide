@@ -1,3 +1,4 @@
+
 .. contents:: Table of Contents
 
 Objective
@@ -25,7 +26,8 @@ The BuyTime Online & Retail scenario is a representative example of a shared Ret
 
 - The Retail Branch Kiosk provides recommendations and processes orders for in-store shoppers. The key requirements for this scenario are ease of deployment and configuration of the Retail Branch Kiosks, as well as the ability to quickly and securely connect to other services, including the recommendation engine service that runs in each branch and the central inventory database that runs in the public cloud. 
 - The Online .com site provides typical eCommerce capabilities and is augmented with modern online promotion features. The key requirements are a quick response time for time- and latency-sensitive online promotions, similar to Amazon’s Lighting Deals, as well as high security for both in-branch and online eCommerce operations.
-
+Edge Compute for Multicloud Apps
+####################################
 
 For simplicity, this scenario re-uses the standard WooCommerce datasets for a clothes shop. The modules below lay out a framework for connecting and managing the distributed app services for this scenario, with a focus on the three core use-cases.
 
