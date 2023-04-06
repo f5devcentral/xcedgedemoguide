@@ -615,6 +615,12 @@ Now that the TCP LB for the synchronization module is created, we can test it. O
 
 .. figure:: ./assets/test-synchronization_1.png
 
+
+MODULE 3
+################################
+
+In this Module we are going to use Regional Edge to deploy promo service and use HTTP LB to connect it to the BuyTime Online deployment on CE. In order to do that, we will need to create a RE virtual site, assign the created RE and CE sites to the virtual K8s, after that deploy our deals module and create HTTP LB for the lightning deals.   
+
 ------------------------------------------------------------
 Deploy online store module to vK8s
 ------------------------------------------------------------
@@ -720,13 +726,6 @@ Let's now go to the deployed online store module and test it. Open a browser win
 
 .. figure:: ./assets/test-online-store_1.png
 
-
-MODULE 3
-################################
-
-In this Module we are going to use Regional Edge to deploy promo service and use HTTP LB to connect it to the BuyTime Online deployment on CE. In order to do that, we will need to create a RE virtual site, assign the created RE and CE sites to the virtual K8s, after that deploy our deals module and create HTTP LB for the lightning deals.   
-
- 
 ------------------------------------------------------------
 Create virtual RE site 
 ------------------------------------------------------------
