@@ -71,7 +71,7 @@ Pre-Requisites
 Create mK8s resource
 ------------------------------------------------------------
 
-First of all, we will need to create a managed Kubernetes (mK8s) cluster. To do that, log into the Console and navigate to the **Cloud and Edge Sites** service. 
+First of all, we will need to create a managed Kubernetes (mK8s) cluster. To do that, log into the Console and navigate to the **Multi-Cloud Network Connect** service. 
 
 .. figure:: ./assets/mk8s-create_0.png
 
@@ -278,7 +278,7 @@ Create HTTP LB for kiosk
 ------------------------------------------------------------
 
 After creating a namespace, we can go on to creating an HTTP LB for the Kiosk in order to connect the Retail Branches running in-store Kiosk on AppStack to the Recommendation Service. 
-Open the Service menu and navigate to the **Load Balancers** service. 
+Open the Service menu and navigate to the **Multi-Cloud App Connect** service. 
 
 .. figure:: ./assets/httplb-kiosk_0.png
 
@@ -483,7 +483,7 @@ Give namespace a name. Note that each namespace must have a unique name. Click t
 Create buytime-ce-sites virtual site
 ------------------------------------------------------------
 
-Now that the namespace is ready, we can go on to creating a virtual site for our Virtual K8s. Open the Service menu and navigate to the **Load Balancers** section. 
+Now that the namespace is ready, we can go on to creating a virtual site for our Virtual K8s. Open the Service menu and navigate to the **Multi-Cloud App Connect** section. 
 
 .. figure:: ./assets/virtual-site-buytime-ce-sites_0.png
 
@@ -781,7 +781,7 @@ To verify deployment we can execute the following command:
 Create HTTP LB for lightning deals
 ------------------------------------------------------------
 
-In this section of Module 3 we will create and use HTTP LB to connect the promo service to the BuyTime Online deployment. Open the Service menu and proceed to the **Load Balancers** service. 
+In this section of Module 3 we will create and use HTTP LB to connect the promo service to the BuyTime Online deployment. Open the Service menu and proceed to the **Multi-Cloud App Connect** service. 
 
 .. figure:: ./assets/httplb-deals_0.png
 
