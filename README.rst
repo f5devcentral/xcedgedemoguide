@@ -75,7 +75,7 @@ Pre-Requisites
 Create mK8s resource
 ------------------------------------------------------------
 
-First of all, we will need to create a managed Kubernetes (mK8s) cluster. To do that, log into the Console and navigate to the **Multi-Cloud Network Connect** service. 
+First of all, we will need to create a managed Kubernetes (mK8s) cluster. To do that, log into the Console and navigate to the **Distributed Apps** service. 
 
 .. figure:: ./assets/mk8s-create_0.png
 
