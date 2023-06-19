@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
+  namespace: buytime-online
   annotations:
     ves.io/workload-flavor : "ves-io-large"
     ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
@@ -53,6 +54,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-service
+  namespace: buytime-online
   annotations:
     ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
 spec:
@@ -68,6 +70,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress-deployment
+  namespace: buytime-online
   annotations:
     ves.io/workload-flavor : "ves-io-large"
     ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
@@ -112,6 +115,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: wordpress-service
+  namespace: buytime-online
   annotations:
     ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
 spec:
@@ -127,6 +131,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: online-store-deployment
+  namespace: buytime-online
   annotations:
     ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
 spec:
@@ -160,6 +165,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: online-store-service
+  namespace: buytime-online
   annotations:
     ves.io/virtual-sites: "buytime-online/buytime-ce-sites"
 spec:

@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deals-server-deployment
+  namespace: buytime-online
   annotations:
     ves.io/virtual-sites: "buytime-online/buytime-re-sites"
 spec:
@@ -25,6 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: deals-server-service
+  namespace: buytime-online
   annotations:
     ves.io/virtual-sites: "buytime-online/buytime-re-sites"
 spec:
