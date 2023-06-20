@@ -13,12 +13,6 @@ variable "xc_api_p12_file" {
   default = "../api-creds.p12"
 }
 
-variable "zone_name" {
-  type        = string
-  default     = "branch-a.buytime.internal"
-  description = "Zone name"
-}
-
 variable "aws_region" {
   type    = string
   default = "us-east-2"
