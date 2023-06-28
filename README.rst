@@ -355,7 +355,7 @@ Complete creating the load balancer by clicking the **Save and Exit** button.
 Test kiosk
 ------------------------------------------------------------
 
-Let's now test the kiosk we deployed. To do that create a VM next to your App Stack Deployment like in the image below. This VM will be your kiosk simulation. In the real scenario we assume that kiosk will be a standalone machine which is located or has an access to the same network as App Stack.
+Let's now test the kiosk we deployed. To do that create a VM next to your App Stack Deployment like in the image below. This VM will be your kiosk simulation. In the real scenario we assume that kiosk will be a standalone machine which is located or has access to the same network as App Stack.
 
 .. figure:: ./assets/test-kiosk_0.png
 
