@@ -141,9 +141,21 @@ Back on the Azure VNET Site configuration page, navigate to the **Site Type Sele
 
 .. figure:: ./assets/azure-appstack-create_9.png
 
-Proceed to the **Site Node Parameters** section and make sure the **Standard_D3_v2** Azure machine type is set. After that, take one more look at the configuration and complete it by clicking the **Save and Exit** button.
+Proceed to the **Site Node Parameters** section and make sure the **Standard_D3_v2** Azure machine type is set. 
 
 .. figure:: ./assets/azure-appstack-create_10.png
+
+Then scroll down to the **Advanced Configuration** section to configure services to be blocked on site. Select the **Custom Blocked Services Configuration** in the drop-down menu and then click **Add Item**.
+
+.. figure:: ./assets/custom_blocked_services.png
+
+First, make sure that Blocked Services Value Type is **SSH port**, then select **Site Local Network* as Network Type. Finally, click **Apply**.
+
+.. figure:: ./assets/blocked_services_config.png
+
+After that, take one more look at the configuration and complete it by clicking the **Save and Exit** button.
+
+.. figure:: ./assets/saveandexit.png
 
 The Status box for the VNet object will display **Generated**. Click **Apply** in the Actions column. The Status field for your Azure VNet object changes to Applying.
 
