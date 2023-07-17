@@ -149,7 +149,7 @@ Then scroll down to the **Advanced Configuration** section to configure services
 
 .. figure:: ./assets/custom_blocked_services.png
 
-First, make sure that Blocked Services Value Type is **SSH port**, then select **Site Local Network* as Network Type. Finally, click **Apply**.
+First, make sure that Blocked Services Value Type is **SSH port**, then select **Site Local Network** as Network Type. Finally, click **Apply**.
 
 .. figure:: ./assets/blocked_services_config.png
 
@@ -462,7 +462,7 @@ Complete creating the load balancer by clicking the **Save and Exit** button.
 Test recommendations module
 ------------------------------------------------------------
 
-HTTP LB for the recommendation module is created. Now we can test how it works. Open a browser window and go to the http://kiosk.branch-a.buytime.internal/wp-admin. Log in.
+HTTP LB for the recommendation module is created. Now we can test how it works. First, sign in the Kiosk VM created before. Then in the created VM open a browser window and go to the http://kiosk.branch-a.buytime.internal/wp-admin. Log in.
 
 .. figure:: ./assets/test-recommendations_0.png
 
