@@ -141,7 +141,7 @@ Back on the Azure VNET Site configuration page, navigate to the **Site Type Sele
 
 .. figure:: ./assets/azure-appstack-create_9.png
 
-Proceed to the **Site Node Parameters** section and make sure the **Standard_D3_v2** Azure machine type is set. 
+Proceed to the **Site Node Parameters** section and make sure the **Standard_D3_v2** Azure machine type is set. Then go down to the **Public SSH key** and paste the key to access the site. Note that if you don't have a key, you can generate one using the "ssh-keygen" command and then display it with the command "cat ~/.ssh/id_rsa.pub".
 
 .. figure:: ./assets/azure-appstack-create_10.png
 
@@ -226,6 +226,10 @@ Take a look at the node configuration and click the **Apply** button to proceed.
 Back on the AWS VPC Site configuration page, navigate to the **Site Type Selection** section and select the **system/aws-creds** for automatic deployment.
 
 .. figure:: ./assets/ce-site-aws_7.png
+
+Next, we will paste the Public SSH key to access the site. Note that if you don't have a key, you can generate one using the "ssh-keygen" command and then display it with the command "cat ~/.ssh/id_rsa.pub".
+
+.. figure:: ./assets/ssh_key.png
 
 Finally, take one more look at the configuration and complete it by clicking the **Save and Exit** button.
 
