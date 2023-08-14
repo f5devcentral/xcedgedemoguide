@@ -102,7 +102,7 @@ Finally, complete creating the K8s cluster by clicking **Save and Exit**.
 Create app stack
 ------------------------------------------------------------
 
-Let's start with creating an Azure VNet Site and then move on to creating an app stack. Navigate to the **Site Management** section and select **Azure VNET Sites**. Click the **Add Azure VNET Site** button. 
+Let's start with creating an Azure VNet Site and then move on to creating an app stack. Proceed to the **Multi-Cloud Network Connect** service, then navigate to the **Site Management** section and select **Azure VNET Sites**. Click the **Add Azure VNET Site** button. 
 
 .. figure:: ./assets/azure-appstack-create_1.png
 
@@ -178,7 +178,7 @@ Open the calendar, select the expiry date and click the **Download Credential** 
 
 .. figure:: ./assets/mk8s-get-kubeconfig_2.png
 
-Let's now run the command to see the number of Kubernetes pods deployed to run the application. Proceed to the CLI and run the command:
+Let's now run the command to see the number of Kubernetes pods deployed to run the application. Proceed to your local  CLI and run the command:
 
 ::
 
