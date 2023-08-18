@@ -375,7 +375,11 @@ Let's now test the kiosk we deployed. To do that create a VM next to your App St
 
 .. figure:: ./assets/test-kiosk_0.png
 
-Here is an example of the networking section that you would encounter when creating a new VM.
+Here is an example of the networking section that you would encounter when creating a new VM. Make sure to select instance region. In this demo we will use **(US) Central US**.
+
+.. figure:: ./assets/test-kiosk_0_0.png
+
+Select the subnet.
 
 .. figure:: ./assets/test-kiosk_0_1.png
 
@@ -383,7 +387,7 @@ Find the Private IP of your AppStack VM in Azure. Usually it's 10.125.10.5
 
 .. figure:: ./assets/test-kiosk_0_2.png
 
-Update the DNS server on your Kiosk VM, use the AppStack IP address. In a real scenario, you can use the DNS server on AppStack during network outages when working in offline mode
+Update the DNS server on your Kiosk VM, use the AppStack IP address. In a real scenario, you can use the DNS server on AppStack during network outages when working in offline mode. 
 
 .. figure:: ./assets/test-kiosk_0_3.png
 
