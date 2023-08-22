@@ -1,3 +1,7 @@
+resource "tls_private_key" "key" {
+  algorithm = "RSA"
+}
+
 resource "volterra_cloud_credentials" "aws_cred" {
   name      = "${var.environment}"
   namespace = "system"
@@ -34,6 +38,7 @@ resource "volterra_aws_vpc_site" "site" {
   disable_internet_vip    = true
   logs_streaming_disabled = true
   egress_gateway_default  = true
+  ssh_key                 = tls_private_key.key.public_key_openssh
 
   ingress_egress_gw {
     aws_certified_hw = "aws-byol-multi-nic-voltmesh"
@@ -97,3 +102,11 @@ resource "volterra_tf_params_action" "action_apply" {
   ]
 }
 
+output "xc_private_key" {
+  value     = tls_private_key.key.private_key_pem
+  sensitive = true
+}
+
+output "xc_public_key" {
+  value = tls_private_key.key.public_key_openssh
+}

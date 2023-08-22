@@ -1,3 +1,7 @@
+resource "tls_private_key" "key" {
+  algorithm = "RSA"
+}
+
 resource "volterra_cloud_credentials" "aws_cred" {
   name      = "aws-${var.environment}"
   namespace = "system"
@@ -40,6 +44,7 @@ resource "volterra_aws_vpc_site" "appstack" {
 
   disable_internet_vip = true
   logs_streaming_disabled = true
+  ssh_key = tls_private_key.key.public_key_openssh
 
   voltstack_cluster {
     aws_certified_hw = "aws-byol-voltstack-combo"
@@ -117,4 +122,13 @@ data "aws_network_interface" "appstack" {
 
 output "appstack_private_ip" {
   value = data.aws_network_interface.appstack.private_ip
+}
+
+output "xc_private_key" {
+  value     = tls_private_key.key.private_key_pem
+  sensitive = true
+}
+
+output "xc_public_key" {
+  value = tls_private_key.key.public_key_openssh
 }
