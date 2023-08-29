@@ -20,6 +20,22 @@ You can use the included scripts to deploy the WooCommerce sample app, which rep
 
 The guide walks through the key use-cases for this distributed app architecture via several modules, all based on the following scenario.
 
+Resources 
+#########
+
+For more information on the use cases covered by this Demo Guide, please see the following resources including DevCentral articles, YouTube videos and demo guides for AWS and Azure Clouds with the terraform istructions:
+
+* [**DevCentral Article outlining Edge Compute with F5 Distributed Cloud Services**](https://community.f5.com/t5/technical-articles/demo-guide-edge-compute-with-f5-distributed-cloud-services-saas/ta-p/316764)
+
+* [**YouTube video series giving Edge Compute use case examples**](https://www.youtube.com/watch?v=pmh_2oz_5Ys)
+
+* **Cloud-Specific Demo Guides: Azure and AWS** 
+
+  | **SaaS Console**                                                                                                                                                      | **Terraform**                                                                                                                                                                     |
+  | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | [Edge Compute (Azure) via SaaS Console](https://github.com/f5devcentral/xcazedgedemoguide)           | [**Coming soon:** Edge Compute (Azure) via Terraform ](https://github.com/f5devcentral/xcazedgedemoguide/tree/master/terraform)                                         |
+  | [Edge Compute (AWS) via SaaS Console](https://github.com/f5devcentral/xcawsedgedemoguide) | [Edge Compute (AWS) via Terraform ](https://github.com/f5devcentral/xcawsedgedemoguide/tree/main/terraform) |
+  
 
 Scenario
 ################################
