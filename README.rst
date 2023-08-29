@@ -29,13 +29,13 @@ For more information on the use cases covered by this Demo Guide, please see the
 
 - `YouTube video series giving Edge Compute use case examples <https://www.youtube.com/watch?v=pmh_2oz_5Ys>`_
 
-- Cloud-Specific Demo Guides: Azure and AWS 
+- Cloud-Specific Demo Guides: Azure or AWS (1 cloud provider only) 
 
 ============================================================================================  ================================================================================================================================  
 **SaaS Console**                                                                              **Terraform Automation**                                             
 ============================================================================================  ================================================================================================================================
-`Edge Compute (Azure) via SaaS Console <https://github.com/f5devcentral/xcazedgedemoguide>`_  `Coming soon: Edge Compute (Azure) via Terraform <https://github.com/f5devcentral/xcazedgedemoguide/tree/master/terraform>`_
-`Edge Compute (AWS) via SaaS Console <https://github.com/f5devcentral/xcawsedgedemoguide>`_   `Edge Compute (AWS) via Terraform <https://github.com/f5devcentral/xcawsedgedemoguide/tree/main/terraform>`_
+`Edge Compute (AWS only) via SaaS Console <https://github.com/f5devcentral/xcawsedgedemoguide>`_   `Edge Compute (AWS only) via Terraform <https://github.com/f5devcentral/xcawsedgedemoguide/tree/main/terraform>`_
+`Edge Compute (Azure only) via SaaS Console <https://github.com/f5devcentral/xcazedgedemoguide>`_  `Coming soon: Edge Compute (Azure only) via Terraform <https://github.com/f5devcentral/xcazedgedemoguide/tree/master/terraform>`_
 ============================================================================================  ================================================================================================================================
   
 
