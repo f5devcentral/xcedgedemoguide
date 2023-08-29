@@ -23,7 +23,7 @@ The guide walks through the key use-cases for this distributed app architecture 
 Resources 
 #########
 
-For more information on the use cases covered by this Demo Guide, please see the following resources including DevCentral articles, YouTube videos and demo guides for AWS and Azure Clouds with the terraform istructions:
+For more information on the use cases covered by this Demo Guide, please see the following resources including DevCentral articles, YouTube videos and demo guides for AWS and Azure Clouds with the terraform instructions:
 
 - `DevCentral Article outlining Edge Compute with F5 Distributed Cloud Services <https://community.f5.com/t5/technical-articles/demo-guide-edge-compute-with-f5-distributed-cloud-services-saas/ta-p/316764>`_ 
 
