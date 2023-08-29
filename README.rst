@@ -23,16 +23,16 @@ The guide walks through the key use-cases for this distributed app architecture 
 Resources 
 #########
 
-For more information on the use cases covered by this Demo Guide, please see the following resources including DevCentral articles, YouTube videos and demo guides for AWS and Azure Clouds with the terraform instructions:
+For more information on the use cases covered by this Demo Guide, please see the following resources including DevCentral article(s), YouTube video(s), different versions of this guide specific to Amazon AWS and Microsoft Azure deployment, and automation scripts based on Terraform:
 
-- `DevCentral Article outlining Edge Compute with F5 Distributed Cloud Services <https://community.f5.com/t5/technical-articles/demo-guide-edge-compute-with-f5-distributed-cloud-services-saas/ta-p/316764>`_ 
+- `DevCentral Summary Article outlining Edge Compute with F5 Distributed Cloud Services <https://community.f5.com/t5/technical-articles/demo-guide-edge-compute-with-f5-distributed-cloud-services-saas/ta-p/316764>`_ 
 
 - `YouTube video series giving Edge Compute use case examples <https://www.youtube.com/watch?v=pmh_2oz_5Ys>`_
 
 - Cloud-Specific Demo Guides: Azure and AWS 
 
 ============================================================================================  ================================================================================================================================  
-**SaaS Console**                                                                              **Terraform**                                             
+**SaaS Console**                                                                              **Terraform Automation**                                             
 ============================================================================================  ================================================================================================================================
 `Edge Compute (Azure) via SaaS Console <https://github.com/f5devcentral/xcazedgedemoguide>`_  `Coming soon: Edge Compute (Azure) via Terraform <https://github.com/f5devcentral/xcazedgedemoguide/tree/master/terraform>`_
 `Edge Compute (AWS) via SaaS Console <https://github.com/f5devcentral/xcawsedgedemoguide>`_   `Edge Compute (AWS) via Terraform <https://github.com/f5devcentral/xcawsedgedemoguide/tree/main/terraform>`_
