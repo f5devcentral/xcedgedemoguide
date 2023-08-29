@@ -409,7 +409,7 @@ Update the DNS server on your Kiosk VM, use the AppStack IP address. In a real s
 
 .. figure:: ./assets/test-kiosk_0_3.png
 
-Open a browser window and proceed to the http://kiosk.branch-a.buytime.internal/ indicated as a domain for kiosk HTTP LB. You can see the kiosk up and running.
+Open a browser window on your kiosk VM and proceed to the http://kiosk.branch-a.buytime.internal/ indicated as a domain for kiosk HTTP LB. You can see the kiosk up and running.
 
 .. figure:: ./assets/test-kiosk_1.png
 
