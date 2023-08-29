@@ -1,0 +1,8 @@
+[submodule "aws-edge-demoguide"]
+	path = xcawsedgedemoguide
+	url = git@github.com:f5devcentral/xcawsedgedemoguide.git
+	branch = main
+[submodule "azure-edge-demoguide"]
+	path = xcazedgedemoguide
+	url = git@github.com:f5devcentral/xcazedgedemoguide.git
+	branch = main
