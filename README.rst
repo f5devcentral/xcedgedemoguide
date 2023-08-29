@@ -35,7 +35,7 @@ For more information on the use cases covered by this Demo Guide, please see the
 **SaaS Console**                                                                                        **Terraform Automation**                                             
 =================================================================================================       =================================================================================================================================
 `Edge Compute (AWS only) via SaaS Console <https://github.com/f5devcentral/xcawsedgedemoguide>`_        `Edge Compute (AWS only) via Terraform <https://github.com/f5devcentral/xcawsedgedemoguide/tree/main/terraform>`_
-`Edge Compute (Azure only) via SaaS Console <https://github.com/f5devcentral/xcazedgedemoguide>`_       `Coming soon: Edge Compute (Azure only) via Terraform <https://github.com/f5devcentral/xcazedgedemoguide/tree/master/terraform>`_
+`Edge Compute (Azure only) via SaaS Console <https://github.com/f5devcentral/xcazedgedemoguide>`_       `Coming soon: Edge Compute (Azure only) via Terraform <https://github.com/f5devcentral/xcazedgedemoguide/tree/main/terraform>`_
 =================================================================================================       =================================================================================================================================
 
 Scenario
