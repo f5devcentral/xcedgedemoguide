@@ -4,5 +4,5 @@
 	branch = main
 [submodule "azure-edge-demoguide"]
 	path = xcazedgedemoguide
-	url = ../xcazedgedemoguide.git
+	url = git@github.com:f5devcentral/xcazedgedemoguide.git
 	branch = main
