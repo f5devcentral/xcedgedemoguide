@@ -393,7 +393,7 @@ Let's now test the kiosk we deployed. To do that create a VM next to your App St
 
 .. figure:: ./assets/test-kiosk_0.png
 
-Here is an example of the networking section that you would encounter when creating a new VM. Make sure to select instance region. In this demo we will use **(US) Central US**.
+Here is an example of the networking section that you would encounter when creating a new VM. Select instance region. In this demo we will use **(US) Central US**. And then select the base operating system. We use **Windows Server 2022 Datacenter: Azure Edition Hotpatch - x64 Gen2** for this demo.
 
 .. figure:: ./assets/test-kiosk_0_0.png
 
