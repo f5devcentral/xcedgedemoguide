@@ -16,7 +16,7 @@ variable "xc_api_p12_file" {
 
 variable "kubeconfig_path" {
   type    = string
-  default = "../kubeconfig_vk8s.conf"
+  default = "../kubeconfig_vk8s.yaml"
 }
 
 variable "aws_region" {

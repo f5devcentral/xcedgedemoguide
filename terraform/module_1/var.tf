@@ -16,11 +16,11 @@ variable "xc_api_p12_file" {
 
 variable "kubeconfig_path" {
   type    = string
-  default = "../kubeconfig_mk8s.conf"
+  default = "../kubeconfig_mk8s.yaml"
 }
 
 variable "app_stack_name" {
   type        = string
-  default     = "aws-branch-a"
+  default     = "azure-branch-a"
   description = "App Stack Name"
 }

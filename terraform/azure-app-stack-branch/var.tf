@@ -1,7 +1,7 @@
 variable "environment" {
+  type        = string
   default     = "branch-a"
   description = "Environment Name"
-  type        = string
 }
 
 variable "xc_api_url" {
@@ -13,17 +13,22 @@ variable "xc_api_p12_file" {
   default = "../api-creds.p12"
 }
 
-variable "aws_region" {
+variable "azure_rg_location" {
   type    = string
-  default = "us-east-2"
+  default = "eastus2"
 }
 
-variable "aws_access_key" {
+variable "azure_subscription_id" {
   type    = string
-  default = "your_aws_access_key"
+  default = "your_azure_subscription_id"
 }
 
-variable "aws_secret_key" {
+variable "azure_subscription_tenant_id" {
   type    = string
-  default = "your_aws_secret_key"
+  default = "your_azure_tenant_id"
+}
+
+variable "azure_xc_machine_type" {
+  type    = string
+  default = "Standard_D3_v2"
 }
