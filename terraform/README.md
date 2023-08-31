@@ -2,13 +2,13 @@
 
 
 
-## XC Cloud credenrials
+## XC Cloud credentials
 
-Sign in to the F5 Distributed Cloud Console and open **Administration** tab.
+Sign in to the F5 Distributed Cloud Console and open the **Administration** tab.
 
 ![](../assets/terraform/administration.png)
 
-Open **Credentials** section and click **Add Credentials**.
+Open the **Credentials** section and click **Add Credentials**.
 
 ![](../assets/terraform/create_credentials.png)
 
@@ -83,11 +83,11 @@ Save the output
     xc_private_key = <sensitive>
     xc_public_key = ssh-rsa AAAAB3NzaC....
     
-Connect to the kiosk VM with RDP connection and update DNS Server. Use **kiosk_address** from the output. **azureuser** as a login. To retrieve the password followinf command:
+Connect to the kiosk VM with RDP connection and update DNS Server. Use **kiosk_address** from the output. **azureuser** as a login. To retrieve the password following command:
 
     terraform output kiosk_password
 
-Open DNS setings and use the DNS server from the output **appstack_private_ip** and any public as a Secondary DNS
+Open DNS settings and use the DNS server from the output **appstack_private_ip** and any public as a Secondary DNS
 
     10.125.10.5
     8.8.8.8
@@ -125,7 +125,7 @@ Check **acknowledge** checkbox and click **Create stack**.
 
 ![](../assets/terraform/aws_stack_next_2.png)
 
-In a few minutes navigate to the **Output** tab and find your **Access Key** and **Access Secret**. Note down that keys.
+In a few minutes navigate to the **Output** tab and find your **Access Key** and **Access Secret**. Note down those keys.
 
 ![](../assets/terraform/aws_keys.png)
 
@@ -253,6 +253,6 @@ Apply Terraform script.
 
 ## Clean up
 
-Run the **terraform destroy** command in the each forlder.
+Run the **terraform destroy** command in each folder.
 
     terraform destroy
