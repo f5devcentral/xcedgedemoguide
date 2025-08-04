@@ -39,13 +39,15 @@
 
 # Objective
 
-This guide, along with the provided scripts and sample app & services, is designed to help explore and demonstrate **Hybrid Multicloud App Delivery** using the F5 Distributed Cloud Platform, including App Stack, Multi-Cloud Networking (MCN) and Edge Compute.
+This guide, along with the provided scripts and sample app & services, is designed to help explore and demonstrate the capabilities of the F5 Distributed Cloud Platform through the lens of the key strategic solution area - **Hybrid Multicloud App Delivery** for seamlessly deploying app components across cloud, branch, and edge.
+
+The outlined use-cases focus on F5 Distributed Cloud App Stack, Multi-Cloud Networking (MCN) and Edge Compute services.
 
 You can use the included scripts to deploy a WooCommerce sample app, which represents a traditional 3-tier app architecture (backend + database + frontend). With F5 Distributed Cloud Services, you can easily deploy and securely network these app services to create a distributed app model that spans across:
 
 - Customer Edge (CE) public cloud
 
-- Retail Branch (AppStack on a private cloud)
+- Retail Branch (App Stack on a private cloud)
 
 - Regional Edge (RE)
 
@@ -198,7 +200,7 @@ Wait for the apply process to complete and the status to change to **Applied**.
 
 ## Get mK8s Kubeconfig
 
-Next, we will get the mK8s Kubeconfig. Navigate to the **Managed K8s** section in the left-side panel and proceed to **Overview**. The page will show the created managed K8s. Open its menu and select **Download Global Kubeconfig**.
+Next, we will get the mK8s Kubeconfig. Navigate to the **Managed K8s** section of the **Distributed Apps** service and proceed to **Overview**. The page will show the created managed K8s. Open its menu and select **Download Global Kubeconfig**.
 
 ![alt text](assets/mk8s-get-kubeconfig-1.png)
 
@@ -226,9 +228,7 @@ Enter a name and proceed to the labels. Type in **location** for the custom key 
 
 ![alt text](assets/ce-site-aws-2.png)
 
-Next, we will configure site type. First, select a region from the **AWS Region** drop-down menu. We'll use **ca-central-1** for this demo.
-With the **New VPC Parameters** selected by default, go on to create a new VPC. Select **Autogenerate VPC Name** and enter the **172.24.0.0/16** CIDR in the IPv4 CIDR block field.
-From the **Select Ingress Gateway or Ingress/Egress Gateway** menu, select the **Ingress/Egress Gateway (Two Interface)** option which is useful when the site is used as ingress/egress gateway to the VPC. Click **Configure** to open the two-interface node configuration.
+Next, we will configure site type. First, select your cloud credentials. Then pick your AWS Region. Fill in the **172.24.0.0/16** CIDR in the Primary IPv4 CIDR block field. Open the Select Ingress Gateway or Ingress/Egress Gateway menu, and select **Ingress/Egress Gateway (Two Interface)** which is useful when the site is used as ingress/egress gateway to the VPC. Click **Configure** to open the two-interface node configuration.
 
 ![alt text](assets/ce-site-aws-3.png)
 
@@ -247,25 +247,21 @@ Take a look at the node configuration and click the **Apply** button to proceed.
 
 ![alt text](assets/ce-site-aws-6.png)
 
-Back on the AWS VPC Site configuration page, navigate to the **Site Type Selection** section and select the **system/aws-creds** for automatic deployment.
-
-![alt text](assets/ce-site-aws-7.png)
-
-Next, we will paste the Public SSH key to access the site. Note that if you don't have a key, you can generate one using the "ssh-keygen" command and then display it with the command "cat ~/.ssh/id_rsa.pub".
+Back on the AWS VPC Site configuration page, we will paste the Public SSH key to access the site. Note that if you don't have a key, you can generate one using the "ssh-keygen" command and then display it with the command "cat ~/.ssh/id_rsa.pub".
 
 ![alt text](assets/ssh-key.png)
 
-Finally, take one more look at the configuration and complete it by clicking the **Save and Exit** button.
+Finally, take one more look at the configuration and complete it by clicking the **Add AWS VPC Site** button.
 
 ![alt text](assets/ce-site-aws-8.png)
 
-The Status box for the VPC site object will display **Generated**. Click **Apply**. The Status field for the AWS VPC object changes to **Apply Planning**. Wait for the apply process to complete and the status to change to **Applied**.
+The Status box for the VPC site object will display **Validation Succeeded**. Click **Apply**. The Status field for the AWS VPC object changes to **Applying**. Wait for the apply process to complete and the status to change to **Applied**.
 
 ![alt text](assets/ce-site-aws-9.png)
 
 # MODULE 1
 
-In this Module we are going to deploy BuyTime Retail Kiosk using AppStack created within the Pre-requisites section, create an HTTP LB for the Kiosk, and connect the Retail Branches running in-store Kiosk on AppStack to the Recommendation Service using the created HTTP LB.
+In this Module we are going to deploy BuyTime Retail Kiosk using App Stack created within the Pre-requisites section, create an HTTP LB for the Kiosk, and connect the Retail Branches running in-store Kiosk on App Stack to the Recommendation Service using the created HTTP LB.
 
 ## Deploy kiosk
 
@@ -294,7 +290,7 @@ If the kiosk is deployed and running correctly, the **1/1** value will appear in
 
 ## Create branch-a namespace
 
-In order to connect the Retail Branches running in-store Kiosk on AppStack to the Recommendation Service using the HTTP LB, we first need to create a namespace for the HTTP LB. To do that, open the Service menu and navigate to the **Administration** service.
+In order to connect the Retail Branches running in-store Kiosk on App Stack to the Recommendation Service using the HTTP LB, we first need to create a namespace for the HTTP LB. To do that, open the Service menu and navigate to the **Administration** service.
 
 ![alt text](assets/namespace-branch-a-0.png)
 
@@ -322,7 +318,7 @@ In the **Name** field, enter a name for the new load balancer.
 ![alt text](assets/httplb-kiosk-2.png)
 
 Then proceed to the **Domains and LB Type** section and fill in the **kiosk.branch-a.buytime.internal** domain.
-Next, from the **Load Balancer Type** drop-down menu, select **HTTP** to create the HTTP type of load balancer. Specify the **80** port.
+Next, from the **Load Balancer Type** drop-down menu, select **HTTP** to create the HTTP type of load balancer. Make sure port **80** is specified.
 
 ![alt text](assets/httplb-kiosk-3.png)
 
@@ -350,7 +346,7 @@ Back on the Origin Pool page, type in the **8080** Origin server Port.
 
 ![alt text](assets/httplb-kiosk-9.png)
 
-Scroll down and click **Continue** to move on to apply the origin pool configuration.
+Scroll down and click **Add Origin Pool** to move on to apply the origin pool configuration.
 
 ![alt text](assets/httplb-kiosk-10.png)
 
@@ -366,7 +362,7 @@ Click **Add Item** to add the configuration.
 
 ![alt text](assets/httplb-kiosk-13.png)
 
-In the drop-down menu select **Site** as a place to advertise. Then select **Inside and Outside Network** for the site. And finally, select the created site as site reference. Click **Apply** to add the specified configuration.
+Make sure **Site** is as a place to advertise with **Inside and Outside Network**. Select the created earlier site as site reference. Click **Apply** to add the specified configuration.
 
 ![alt text](assets/httplb-kiosk-14.png)
 
@@ -374,7 +370,7 @@ Proceed by clicking **Apply**. This will apply the VIP Advertisement configurati
 
 ![alt text](assets/httplb-kiosk-15.png)
 
-Complete creating the load balancer by clicking the **Save and Exit** button.
+Complete creating the load balancer by clicking the **Add HTTP Load Balancer** button.
 
 ![alt text](assets/httplb-kiosk-16.png)
 
@@ -392,11 +388,11 @@ Select the subnet.
 
 ![alt text](assets/test-kiosk-0-1.png)
 
-Find the Private IP of your AppStack VM in Azure. Usually it's 10.125.10.5
+Find the Private IP of your App Stack VM in Azure. Usually it's 10.125.10.5
 
 ![alt text](assets/test-kiosk-0-2.png)
 
-Update the DNS server on your Kiosk VM, use the AppStack IP address. In a real scenario, you can use the DNS server on AppStack during network outages when working in offline mode.
+Update the DNS server on your Kiosk VM, use the App Stack IP address. In a real scenario, you can use the DNS server on App Stack during network outages when working in offline mode.
 
 ![alt text](assets/test-kiosk-0-3.png)
 
@@ -407,7 +403,7 @@ Open a browser window on your kiosk VM and proceed to the http://kiosk.branch-a.
 ## HTTP LB recommendations module
 
 In this part of Module 1 we are going to create an HTTP LB for the recommendation module of our app and then test it.
-To do that, go back to the F5 Console and click the **Add HTTP Load Balancer** button to open the creation form.
+To do that, go back to the Console and click the **Add HTTP Load Balancer** button to open the creation form.
 
 ![alt text](assets/httplb-recommendations-1.png)
 
@@ -415,7 +411,7 @@ In the **Name** field, enter a name for the new load balancer expressing its pur
 
 ![alt text](assets/httplb-recommendations-2.png)
 
-Then proceed to the **Domains and LB Type** section and fill in the **recommendations.branch-a.buytime.internal** domain. Next, from the **Load Balancer Type** drop-down menu, select **HTTP** to create the HTTP type of load balancer. Specify the **80** port.
+Then proceed to the **Domains and LB Type** section and fill in the **recommendations.branch-a.buytime.internal** domain. Next, from the **Load Balancer Type** drop-down menu, select **HTTP** to create the HTTP type of load balancer. Make sure port **80** is specified.
 
 ![alt text](assets/httplb-recommendations-3.png)
 
@@ -435,7 +431,7 @@ To create a new origin server, click **Add Item**.
 
 ![alt text](assets/httplb-recommendations-7.png)
 
-First, from the **Select Type of Origin Server** menu, select **Public DNS Name of Origin Server** to specify the origin server with DNS Name. To simplify the guide we provide you with demo server hosted on our cloud. Enter the **recommendations.buytime.sr.f5-cloud-demo.com** public IP and click **Apply**. If you want to use your own, there is k8s manifest or docker compose filed in the **deployments** folder.
+First, make sure **Public DNS Name of Origin Server** is selected to specify the origin server with DNS Name. To simplify the guide we provide you with demo server hosted on our cloud. Enter the **recommendations.buytime.sr.f5-cloud-demo.com** DNS name and click **Apply**. If you want to use your own, there is k8s manifest or docker compose file in the **deployments** folder.
 
 ![alt text](assets/httplb-recommendations-8.png)
 
@@ -443,7 +439,7 @@ Back on the **Origin Pool** page, leave the **443** Origin server Port. Make sur
 
 ![alt text](assets/httplb-recommendations-9.png)
 
-Scroll down, enable TLS and click **Continue** to move on to apply the origin pool configuration.
+Scroll down, enable TLS and click **Add Origin Pool** to move on to apply the origin pool configuration.
 
 ![alt text](assets/httplb-recommendations-10.png)
 
@@ -459,7 +455,7 @@ Click **Add Item** to add the configuration.
 
 ![alt text](assets/httplb-recommendations-13.png)
 
-In the drop-down menu select **Site** as a place to advertise. Then select **Inside and Outside Network** for the site. And finally, select the created site as site reference. Click **Apply** to add the specified configuration.
+Make sure **Inside and Outside Network** is specified for the site. Select the created site as site reference. Click **Apply** to add the specified configuration.
 
 ![alt text](assets/httplb-recommendations-14.png)
 
@@ -467,7 +463,7 @@ Proceed by clicking **Apply**. This will apply the VIP Advertisement configurati
 
 ![alt text](assets/httplb-recommendations-15.png)
 
-Complete creating the load balancer by clicking the **Save and Exit** button.
+Complete creating the load balancer by clicking the **Add HTTP Load Balancer** button.
 
 ![alt text](assets/httplb-recommendations-16.png)
 
@@ -490,6 +486,8 @@ Finally, go to the kiosk http://kiosk.branch-a.buytime.internal to see that the 
 In this Module we are going to use CE to deploy central DB (central inventory) & online App, as well as create and use TCP LB to securely connect to Retail Branch to enable order & inventory sync.
 
 ## Create buytime-online namespace
+
+TBD
 
 First of all, we will need to create a namespace for our online store to add our instances to. To do that, open the Service menu and navigate to the **Administration** service.
 
