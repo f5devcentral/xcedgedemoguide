@@ -1,4 +1,4 @@
-# F5 Edge Compute for Multicloud Apps
+# F5 Edge Compute and Enterprise Networking with F5 Distributed Cloud Services
 
 # Table of Contents
 
@@ -39,23 +39,18 @@
 
 # Objective
 
-This guide, along with the provided scripts and sample app & services, is designed to help explore and demonstrate the capabilities of the F5 Distributed Cloud Platform through the lens of the key strategic solution area - **Hybrid Multicloud App Delivery** for seamlessly deploying app components across cloud, branch, and edge.
+This guide, along with the provided scripts and sample app & services, is designed to help explore and demonstrate the capabilities of the F5 Distributed Cloud Platform through the lens of the key strategic solution area - **Hybrid Multicloud App Delivery** for seamlessly deploying app components across *multiple* clouds, branch, and edge.
 
-The outlined use-cases focus on F5 Distributed Cloud App Stack, Multi-Cloud Networking (MCN) and Edge Compute services.
-
-You can use the included scripts to deploy a WooCommerce sample app, which represents a traditional 3-tier app architecture (backend + database + frontend). With F5 Distributed Cloud Services, you can easily deploy and securely network these app services to create a distributed app model that spans across:
-
+The main F5 products used in this guide are used for *Edge Compute* with F5 Distributed Cloud AppStack and *Multi-Cloud Networking (MCN)* with F5 Distributed Cloud App Connect. You can use the steps below and the included Terraform scripts to deploy and configure services for a WooCommerce sample app (traditional 3-tier app architecture with a backend + database + frontend); these are deployed across *multiple clouds* representing branch and edge locations. With F5 Distributed Cloud Services, you can easily deploy and securely network these app services to create a distributed app model that spans across:
 - Customer Edge (CE) public cloud
-
 - Retail Branch (App Stack on a private cloud)
-
 - Regional Edge (RE)
 
-The guide walks through the key use-cases for this distributed app architecture via several modules, all based on the following scenario.
+The guide walks through these key use-cases for this distributed app architecture via several modules, to support step-by-step flow of this extensive scenario.
 
 # Resources
 
-For more information on the use cases covered by this Demo Guide, please see the following resources including DevCentral article(s), YouTube video(s), different versions of this guide specific to Amazon AWS and Microsoft Azure deployment, and automation scripts based on Terraform:
+For more information on the use cases covered by this Demo Guide, please see the following resources, including DevCentral article(s), YouTube video(s), different versions of this guide specific to Amazon AWS and Microsoft Azure deployment, and automation scripts based on Terraform:
 
 - [DevCentral Summary Article outlining Edge Compute with F5 Distributed Cloud Services](https://community.f5.com/t5/technical-articles/demo-guide-edge-compute-with-f5-distributed-cloud-services-saas/ta-p/316764)
 
