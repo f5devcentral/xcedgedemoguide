@@ -2,7 +2,7 @@
 
 # Table of Contents
 
-- [F5 Edge Compute for Multicloud Apps](#f5-edge-compute-for-multicloud-apps)
+- [F5 Edge Compute and Enterprise Networking with F5 Distributed Cloud Services](#f5-edge-compute-and-enterprise-networking-with-f5-distributed-cloud-services)
 - [Table of Contents](#table-of-contents)
 - [Objective](#objective)
 - [Resources](#resources)
@@ -39,9 +39,10 @@
 
 # Objective
 
-This guide, along with the provided scripts and sample app & services, is designed to help explore and demonstrate the capabilities of the F5 Distributed Cloud Platform through the lens of the key strategic solution area - **Hybrid Multicloud App Delivery** for seamlessly deploying app components across *multiple* clouds, branch, and edge.
+This guide, along with the provided scripts and sample app & services, is designed to help explore and demonstrate the capabilities of the F5 Distributed Cloud Platform through the lens of the key strategic solution area - **Hybrid Multicloud App Delivery** for seamlessly deploying app components across _multiple_ clouds, branch, and edge.
 
-The main F5 products used in this guide are used for *Edge Compute* with F5 Distributed Cloud AppStack and *Multi-Cloud Networking (MCN)* with F5 Distributed Cloud App Connect. You can use the steps below and the included Terraform scripts to deploy and configure services for a WooCommerce sample app (traditional 3-tier app architecture with a backend + database + frontend); these are deployed across *multiple clouds* representing branch and edge locations. With F5 Distributed Cloud Services, you can easily deploy and securely network these app services to create a distributed app model that spans across:
+The main F5 products used in this guide are used for _Edge Compute_ with F5 Distributed Cloud AppStack and _Multi-Cloud Networking (MCN)_ with F5 Distributed Cloud App Connect. You can use the steps below and the included Terraform scripts to deploy and configure services for a WooCommerce sample app (traditional 3-tier app architecture with a backend + database + frontend); these are deployed across _multiple clouds_ representing branch and edge locations. With F5 Distributed Cloud Services, you can easily deploy and securely network these app services to create a distributed app model that spans across:
+
 - Customer Edge (CE) public cloud
 - Retail Branch (App Stack on a private cloud)
 - Regional Edge (RE)
@@ -185,13 +186,9 @@ After that, take one more look at the configuration and complete it by clicking 
 
 ![alt text](assets/saveandexit.png)
 
-The Status box for the VNet object will display **Generated**. Click **Apply** in the Actions column. The Status field for your Azure VNet object changes to Applying.
+The Status box for the site object displays **Validation Succeeded**. So, click **Apply** in the Deployment column. First, the Status field for the Azure VNET object changes to **Applying**. Wait for the apply process to complete and the status to change to **Applied**.
 
-![alt text](assets/azure-appstack-create-11.png)
-
-Wait for the apply process to complete and the status to change to **Applied**.
-
-![alt text](assets/azure-appstack-create-12.png)
+![alt text](assets/az-applysite.png)
 
 ## Get mK8s Kubeconfig
 
@@ -567,8 +564,6 @@ In the **Origin Pool** drop-down menu, click **Add Item** to start adding the po
 Give origin pool a name, say, **inventory-server-branches-pool**. Then move on to configuring an origin server.
 
 ![alt text](assets/tcplb-synchronization-5.png)
-
-TBD
 
 First, from the **Select Type of Origin Server** menu, select **K8s Service Name of Origin Server on given Sites** to specify the origin server with its K8s service name. Then enter the **inventory-server-service.buytime-online** service name in the **Service Name** field. Next, select the **buytime-ce-sites** virtual site created earlier. After that open the **Select Network on the site** menu and select **vK8s Networks on Site** which means that the origin server is on vK8s network on the site and, finally, click **Apply**.
 
