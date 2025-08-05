@@ -487,8 +487,6 @@ In this Module we are going to use CE to deploy central DB (central inventory) &
 
 ## Create buytime-online namespace
 
-TBD
-
 First of all, we will need to create a namespace for our online store to add our instances to. To do that, open the Service menu and navigate to the **Administration** service.
 
 ![alt text](assets/namespace-buytime-online-0.png)
@@ -497,7 +495,7 @@ In the **Personal Management** section of the left Administration panel, select 
 
 ![alt text](assets/namespace-buytime-online-1.png)
 
-Give namespace a name. Note that each namespace must have a unique name. Click the **Add Namespace** button. The new namespace displays in the list on your **My Namespaces** page.
+Give it a name. Note that each namespace must have a unique name. Click the **Add Namespace** button. The new namespace displays in the list on your **My Namespaces** page.
 
 ![alt text](assets/namespace-buytime-online-2.png)
 
@@ -511,7 +509,7 @@ In the **Application Namespaces** menu select the namespace we created in the pr
 
 ![alt text](assets/virtual-site-buytime-ce-sites-1.png)
 
-In the Metadata section **Name** field, enter a virtual site name. In the **Site Type** section, select the **CE** site type from the drop-down menu, and then move on to adding label. Type in **location** as a key, select the **==** operator and fill in **buytime-ce-site** value for the key. Complete the process by clicking the **Save and Exit** button.
+In the Metadata section **Name** field, enter a virtual site name. In the **Site Type** section, select the **CE** site type from the drop-down menu, and then move on to adding label. Type in **location** as a key, select the **==** operator and fill in **buytime-ce-site** value for the key. Complete the process by clicking the **Add Virtual site** button.
 
 ![alt text](assets/virtual-site-buytime-ce-sites-2.png)
 
@@ -525,7 +523,7 @@ Proceed to **Virtual K8s** and click the **Add Virtual K8s** button to create a 
 
 ![alt text](assets/vk8s-create-1.png)
 
-In the Name field, enter a name. Then open the menu and select the virtual site we created earlier. Complete creating the vK8s object by clicking **Save and Exit**. Wait for the vK8s object to get created and displayed.
+In the Name field, enter a name. Then open the menu and select the virtual site we created earlier. Complete creating the vK8s object by clicking **Add Virtual K8s**. Wait for the vK8s object to get created and displayed.
 
 ![alt text](assets/vk8s-create-2.png)
 
@@ -575,17 +573,15 @@ Give origin pool a name, say, **inventory-server-branches-pool**. Then move on t
 
 ![alt text](assets/tcplb-synchronization-5.png)
 
+TBD
+
 First, from the **Select Type of Origin Server** menu, select **K8s Service Name of Origin Server on given Sites** to specify the origin server with its K8s service name. Then enter the **inventory-server-service.buytime-online** service name in the **Service Name** field. Next, select the **buytime-ce-sites** virtual site created earlier. After that open the **Select Network on the site** menu and select **vK8s Networks on Site** which means that the origin server is on vK8s network on the site and, finally, click **Apply**.
 
 ![alt text](assets/tcplb-synchronization-6.png)
 
-Back on the **Origin Pool** page, type in the **3000** Origin server Port.
+Back on the **Origin Pool** page, type in the **3000** Origin server Port. Then scroll down and click **Add Origin Pool** to move on to apply the origin pool configuration.
 
 ![alt text](assets/tcplb-synchronization-7.png)
-
-Scroll down and click **Continue** to move on to apply the origin pool configuration.
-
-![alt text](assets/tcplb-synchronization-8.png)
 
 Click the **Apply** button to apply the origin pool configuration to the TCP Load Balancer.
 
@@ -599,7 +595,7 @@ Click **Add Item** to add the configuration.
 
 ![alt text](assets/tcplb-synchronization-11.png)
 
-In the drop-down menu select **Site** as a place to advertise. Then select **Inside and Outside Network** for the site. And finally, select the created site **app-stack-branch-a** as site reference. Click **Apply** to add the specified configuration.
+Make sure **Inside and Outside Network** is specified for the site. Select the created site **app-stack-branch-a** as site reference. Click **Apply** to add the specified configuration.
 
 ![alt text](assets/tcplb-synchronization-12.png)
 
@@ -607,7 +603,7 @@ Proceed by clicking **Apply**. This will apply the VIP Advertisement configurati
 
 ![alt text](assets/tcplb-synchronization-13.png)
 
-Complete creating the load balancer by clicking the **Save and Exit** button.
+Complete creating the load balancer by clicking the **Add TCP Load Balancer** button.
 
 ![alt text](assets/tcplb-synchronization-14.png)
 
@@ -662,7 +658,7 @@ In the **Name** field, enter a name for the new load balancer.
 
 ![alt text](assets/httplb-online-store-2.png)
 
-Then proceed to the **Domains and LB Type** section and fill in the **online-store.f5-cloud-demo.com** domain. Next, from the **Load Balancer Type** drop-down menu, select **HTTPS with Automatic Certificate** and enable HTTP redirecting to HTTPS and adding HSTS header by checking the boxes off.
+Then proceed to the **Domains and LB Type** section and fill in the **online-store.f5-cloud-demo.com** domain. Make sure **HTTPS with Automatic Certificate** is specified. Next, enable HTTP redirecting to HTTPS and adding HSTS header by checking the boxes off.
 
 ![alt text](assets/httplb-online-store-3.png)
 
@@ -686,19 +682,15 @@ First, from the **Select Type of Origin Server** menu, select **K8s Service Name
 
 ![alt text](assets/httplb-online-store-8.png)
 
-Back on the Origin Pool page, type in the **8080** Origin server Port.
+Back on the Origin Pool page, type in the **8080** Origin server Port. Then scroll down and click **Add Origin Pool** to move on to apply the origin pool configuration.
 
 ![alt text](assets/httplb-online-store-9.png)
-
-Scroll down and click **Continue** to move on to apply the origin pool configuration.
-
-![alt text](assets/httplb-online-store-10.png)
 
 Click the **Apply** button to apply the origin pool configuration to the HTTP Load Balancer.
 
 ![alt text](assets/httplb-online-store-11.png)
 
-Finally, open the **VIP Advertisement** menu and select **Internet** for VIP Advertisement, which will advertise this load balancer on public network with default VIP. Complete creating the load balancer by clicking the **Save and Exit** button.
+Finally, make sure **Internet** is specified for VIP Advertisement, which will advertise this load balancer on public network with default VIP. Complete creating the load balancer by clicking the **Add HTTP Load Balancer** button.
 
 ![alt text](assets/httplb-online-store-12.png)
 
@@ -722,7 +714,7 @@ Navigate to **Virtual Sites** in the **Manage** section. After that click **Add 
 
 ![alt text](assets/virtual-site-buytime-re-sites-1.png)
 
-In the **Metadata** section Name field, enter a virtual site name. In the **Site Type** section, select the **RE** site type from the drop-down menu, and then move on to adding label. Select the **ves.io/region** key identifying region assigned to the site, select the **In** operator and then select the values **ves-io-seattle**, **ves-io-singapore** and **ves-io-stockholm**. Complete the process by clicking the **Save and Exit** button.
+In the **Metadata** section Name field, enter a virtual site name. In the **Site Type** section, select the **RE** site type from the drop-down menu, and then move on to adding label. Select the **ves.io/region** key identifying region assigned to the site, select the **In** operator and then select the values **ves-io-seattle**, **ves-io-singapore** and **ves-io-stockholm**. Complete the process by clicking the **Add Virtual Site** button.
 
 ![alt text](assets/virtual-site-buytime-re-sites-2.png)
 
@@ -774,7 +766,7 @@ In the **Name** field, enter a name for the new load balancer.
 
 ![alt text](assets/httplb-deals-2.png)
 
-Then proceed to the **Domains and LB Type** section and fill in the **deals.online-store.f5-cloud-demo.com** domain. Next, from the **Load Balancer Type** drop-down menu, select **HTTPS with Automatic Certificate** and enable HTTP redirecting to HTTPS and adding HSTS header by checking the boxes off.
+Then proceed to the **Domains and LB Type** section and fill in the **deals.online-store.f5-cloud-demo.com** domain. Make sure **HTTPS with Automatic Certificate** is specified. Next, enable HTTP redirecting to HTTPS and adding HSTS header by checking the boxes off.
 
 ![alt text](assets/httplb-deals-3.png)
 
@@ -798,19 +790,15 @@ First, from the **Select Type of Origin Server** menu, select **K8s Service Name
 
 ![alt text](assets/httplb-deals-8.png)
 
-Back on the Origin Pool page, type in the **8080** Origin server Port.
+Back on the Origin Pool page, type in the **8080** Origin server Port. Then scroll down and click **Add Origin Pool** to move on to apply the origin pool configuration.
 
 ![alt text](assets/httplb-deals-9.png)
-
-Scroll down and click **Continue** to move on to apply the origin pool configuration.
-
-![alt text](assets/httplb-deals-10.png)
 
 Click the **Apply** button to apply the origin pool configuration to the HTTP Load Balancer.
 
 ![alt text](assets/httplb-deals-11.png)
 
-Finally, open the **VIP Advertisement** menu and select **Internet** for VIP Advertisement, which will advertise this load balancer on public network with default VIP. Complete creating the load balancer by clicking the **Save and Exit** button.
+Finally, make sure **Internet** is specified for **VIP Advertisement**, which will advertise this load balancer on public network with default VIP. Complete creating the load balancer by clicking the **Add HTTP Load Balancer** button.
 
 ![alt text](assets/httplb-deals-12.png)
 
@@ -834,6 +822,6 @@ And finally, let's go to the site and test the deployed Lightning deals module. 
 
 # Wrap-Up
 
-At this stage, you should have deployed a WooCommerce sample app which is representative of a traditional 3-tier app architecture: backend + database + frontend. The F5 Distributed Cloud Services provided easy deployment and secure networking of these app services to realize a distributed app model, spanning across: CE public cloud, Retail Branch (AppStack on a private cloud), an RE. Our fictitious retailer BuyTime is set up to use xC AppStack and has a consistent deployment topology for an in-store Kiosk shopping experience. This topology can run in multiple Retail Branches with identical configuration, management, and security policy applied.
+At this stage, you should have deployed a WooCommerce sample app which is representative of a traditional 3-tier app architecture: backend + database + frontend. F5 Distributed Cloud Services provided **Hybrid Multicloud App Delivery** solution for easy deployment and secure networking of these app services to realize a distributed app model, spanning across: CE public cloud, Retail Branch (App Stack on a private cloud), an RE. Our fictitious retailer BuyTime is set up to use Distributed Cloud Services App Stack and has a consistent deployment topology for an in-store Kiosk shopping experience. This topology can run in multiple Retail Branches with identical configuration, management, and security policy applied.
 
-We hope you have a better understanding of the F5 Distributed Cloud platform (xC) capabilities and are now ready to implement them for your own organization. Should you have any issues or questions, please feel free to raise them via GitHub. Thank you!
+We hope you have a better understanding of the F5 Distributed Cloud Platform capabilities and are now ready to implement them for your own organization. Should you have any issues or questions, please feel free to raise them via GitHub. Thank you!
