@@ -18,6 +18,7 @@ resource "volterra_tcp_loadbalancer" "sync_module" {
           name      = var.app_stack_name
           namespace = "system"
         }
+        network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
       }
     }
   }

@@ -4,15 +4,15 @@ terraform {
   required_providers {
     volterra = {
       source  = "volterraedge/volterra"
-      version = "=0.11.23"
+      version = "=0.11.44"
     }
     kubectl = {
       source  = "gavinbunney/kubectl"
-      version = "=1.14.0"
+      version = "=1.19.0"
     }
     local = {
       source  = "hashicorp/local"
-      version = "=2.4.0"
+      version = "=2.5.3"
     }
   }
 }

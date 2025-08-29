@@ -1,6 +1,6 @@
 locals {
   file_contents        = file("${path.module}/../../deployments/appstack-mk8s-kiosk.yaml")
-  appstack_mk8s_kiosk  = split("\n---\n", local.file_contents)
+  appstack_mk8s_kiosk  = split("---", local.file_contents)
 }
 
 resource "kubectl_manifest" "branch_a" {

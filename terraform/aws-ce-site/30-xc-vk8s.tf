@@ -41,6 +41,7 @@ resource "volterra_virtual_k8s" "buytime" {
 }
 
 resource "volterra_api_credential" "buytime" {
+  created_at = timestamp()
   name                  = "buytime-online-kubeconfig"
   api_credential_type   = "KUBE_CONFIG"
   virtual_k8s_namespace = volterra_namespace.buytime.name

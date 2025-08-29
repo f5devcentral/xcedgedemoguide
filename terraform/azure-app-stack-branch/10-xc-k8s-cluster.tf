@@ -17,6 +17,4 @@ resource "volterra_k8s_cluster" "mk8s" {
   local_access_config {
     local_domain = "buytime.internal"
   }
-
-  
 }

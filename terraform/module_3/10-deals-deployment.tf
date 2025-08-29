@@ -1,6 +1,6 @@
 locals {
   deals_module_contents = file("${path.module}/../../deployments/re-vk8s-deals.yaml")
-  deals_module          = split("\n---\n", local.deals_module_contents)
+  deals_module          = split("---", local.deals_module_contents)
 }
 
 resource "kubectl_manifest" "deals_module" {
