@@ -1,0 +1,4 @@
+xc_api_url = "https://your_xc_tenant.console.ves.volterra.io/api"
+azure_rg_location = "eastus2"
+azure_subscription_id = "your_azure_subscription_id"
+azure_subscription_tenant_id = "your_azure_tenant_id"

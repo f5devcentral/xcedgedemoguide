@@ -6,7 +6,7 @@ resource "volterra_cloud_credentials" "azure_cred" {
   name      = "azure-${var.environment}"
   namespace = "system"
   azure_client_secret {
-    client_id = azuread_application.auth.application_id
+    client_id = azuread_application.auth.client_id
     client_secret {
         clear_secret_info {
             url = "string:///${base64encode(azuread_service_principal_password.auth.value)}"
@@ -58,7 +58,6 @@ resource "volterra_azure_vnet_site" "appstack" {
 
     az_nodes {
       azure_az  = "1"
-      disk_size = "80"
 
       local_subnet {
         subnet {
@@ -125,24 +124,6 @@ data "azurerm_network_interface" "xc_nic" {
 output "appstack_private_ip" {
   value = data.azurerm_network_interface.xc_nic.private_ip_address
 }
-
-# resource "azurerm_route_table" "xc_routes" {
-#   name                          = "xc-route-table"
-#   location                      = azurerm_resource_group.rg.location
-#   resource_group_name           = "${azurerm_resource_group.rg.name}-xc"
-#   disable_bgp_route_propagation = false
-
-#   route {
-#     name                   = "remote-net"
-#     address_prefix         = var.xc_remote_cidr
-#     next_hop_type          = "VirtualAppliance"
-#     next_hop_in_ip_address = data.azurerm_network_interface.xc_private_nic.private_ip_address
-#   }
-
-#   depends_on = [
-#     volterra_tf_params_action.action_apply
-#   ]
-# }
 
 output "xc_private_key" {
   value     = tls_private_key.key.private_key_pem

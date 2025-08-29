@@ -25,13 +25,13 @@ resource "volterra_http_loadbalancer" "kiosk" {
           name      = var.app_stack_name
           namespace = "system"
         }
+        network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
       }
     }
   }
   disable_api_definition           = true
   disable_api_discovery            = true
   no_challenge                     = true
-  disable_ddos_detection           = true
   source_ip_stickiness             = true
   disable_malicious_user_detection = true
   disable_rate_limit               = true

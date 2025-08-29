@@ -1,0 +1,2 @@
+xc_api_url = "https://your_xc_tenant.console.ves.volterra.io/api"
+user_domain = "your_domain_name.example.com"

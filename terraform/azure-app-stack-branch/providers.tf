@@ -2,15 +2,15 @@ terraform {
   required_providers {
     volterra = {
       source  = "volterraedge/volterra"
-      version = "=0.11.25"
+      version = "=0.11.44"
     }
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.69.0"
+      version = "=4.39.0"
     }
     azuread = {
     source  = "hashicorp/azuread"
-    version = "=2.41.0"
+    version = "=3.5.0"
     }
   }
 }
@@ -22,7 +22,6 @@ provider "volterra" {
 
 provider "azurerm" {
   features {}
-  skip_provider_registration = "true"
 
   subscription_id = var.azure_subscription_id
   tenant_id       = var.azure_subscription_tenant_id

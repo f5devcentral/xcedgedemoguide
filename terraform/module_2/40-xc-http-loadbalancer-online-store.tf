@@ -18,12 +18,11 @@ resource "volterra_http_loadbalancer" "online_store" {
     weight   = 1
   }
 
-  advertise_on_public {}
-  
+  advertise_on_public_default_vip  = true
+
   disable_api_definition           = true
   disable_api_discovery            = true
   no_challenge                     = true
-  disable_ddos_detection           = true
   source_ip_stickiness             = true
   disable_malicious_user_detection = true
   disable_rate_limit               = true
